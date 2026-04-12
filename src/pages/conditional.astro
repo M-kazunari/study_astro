@@ -1,0 +1,34 @@
+---
+const rand = Math.round(Math.random() * 100);
+let showOrNot = true;
+if(rand >= 50) {
+    showOrNot = false;
+}
+---
+
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>条件分岐構文</title>
+    </head>
+    <body>
+        <h1>Astroでの条件分岐構文の利用</h1>
+        <section>
+            {
+                showOrNot
+                &&
+                <h2>変数がtrueの場合のみ表示されます。</h2>
+            }
+            {
+                showOrNot
+                ?
+                <p>変数がtrueのため表示されています。{rand}</p>
+                :
+                <p>変数がfalseのため非表示されています。</p>
+            }
+        </section>
+    </body>
+</html>
