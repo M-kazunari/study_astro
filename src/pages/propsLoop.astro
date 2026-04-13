@@ -1,0 +1,122 @@
+---
+import CocktailItem from "../components/CocktailItem.astro";
+
+interface Cocktail {
+    id: number;
+    name: string;
+    price: number;
+    note?: string;
+}
+
+const whiteLady: Cocktail = {
+    id: 55126,
+    name: "ホワイトレディ",
+    price: 1200,
+    note: "美味しいです。",
+};
+const blueHawaii: Cocktail = {
+    id: 55127,
+    name: "ブルーハワイ",
+    price: 1100,
+};
+const margarita: Cocktail = {
+    id: 55128,
+    name: "マルガリータ",
+    price: 1300,
+    note: "爽やかな味わい。",
+};
+const mojito: Cocktail = {
+    id: 55129,
+    name: "モヒート",
+    price: 1250,
+    note: "ミントの香りが心地よい。",
+};
+const cosmopolitan: Cocktail = {
+    id: 55130,
+    name: "コスモポリタン",
+    price: 1400,
+};
+const cosmopolitanWithSpecialNote: Cocktail = {
+    id: 55131,
+    name: "コスモポリタン",
+    price: 1400,
+    note: "クランベリーの香りが特徴。",
+};
+const daiquiri: Cocktail = {
+    id: 55132,
+    name: "ダイキリ",
+    price: 1150,
+    note: "ラムベースの爽やかなカクテル。",
+};
+const pinaColada: Cocktail = {
+    id: 55133,
+    name: "ピニャコラーダ",
+    price: 1350,
+    note: "ココナッツとパイナップルの味わい。",
+};
+const manhattan: Cocktail = {
+    id: 55134,
+    name: "マンハッタン",
+    price: 1450,
+};
+const sidecar: Cocktail = {
+    id: 55135,
+    name: "サイドカー",
+    price: 1300,
+    note: "コニャックベースの上品な味わい。",
+};
+const gimlet: Cocktail = {
+    id: 55136,
+    name: "ギムレット",
+    price: 1100,
+    note: "ジンとライムジュースのシンプルさ。",
+};
+const tequilaSunrise: Cocktail = {
+    id: 55137,
+    name: "テキーラサンライズ",
+    price: 1250,
+    note: "グラデーション色が美しい。",
+};
+const whiskeySour: Cocktail = {
+    id: 55138,
+    name: "ウイスキーサワー",
+    price: 1200,
+};
+const alexander: Cocktail = {
+    id: 55139,
+    name: "アレキサンダー",
+    price: 1350,
+    note: "クリーミーで甘めのカクテル。",
+};
+const longIslandIcedTea: Cocktail = {
+    id: 55140,
+    name: "ロングアイランドアイスティ",
+    price: 1500,
+    note: "複数のスピリッツを使用。",
+};
+
+const cocktails: Cocktail[] = [whiteLady, blueHawaii, margarita, mojito, cosmopolitan, cosmopolitanWithSpecialNote, daiquiri, pinaColada, manhattan, sidecar, gimlet, tequilaSunrise, whiskeySour, alexander, longIslandIcedTea];
+---
+
+<html lang="ja">
+    <head>
+<meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content={Astro.generator} />
+        <title>document</title>
+    </head>
+    <body>
+        <h1>Propsとループの組み合わせ</h1>
+        {
+            cocktails.map((cocktail) => (
+                <CocktailItem
+                    id={cocktail.id}
+                    name={cocktail.name}
+                    price={cocktail.price}
+                    note={cocktail.note}
+                />
+            ))
+        }
+    </body>
+</html>
