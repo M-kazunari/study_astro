@@ -1,0 +1,51 @@
+---
+import EmbeddedHtmlFallback from "../components/EmbeddedHtmlFallback.astro";
+
+const taro = "田中太郎";
+const jiro = "田中次郎";
+const kazu = "大江一成";
+const msg: string[] = [
+    "電話が通じません。",
+    "留守です。",
+    "至急連絡してください。",
+];
+---
+
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>フォールバックコンテンツの利用</h1>
+        <section>
+            <EmbeddedHtmlFallback name={taro}>
+                <p slot="default">問題発生</p>
+                <Fragment slot="detail">
+                    <ul>
+                        {
+                            msg.map( (item) => (
+                                <li>{item}</li>
+                            ))
+                        }
+                    </ul>
+                </Fragment>
+            </EmbeddedHtmlFallback>
+            <EmbeddedHtmlFallback name={jiro} />
+            <EmbeddedHtmlFallback name={kazu}>
+                <p slot="default">問題発生</p>
+                <div slot="detail">
+                    <ul>
+                        {
+                            msg.map( (item) => (
+                                <li>{item}</li>
+                            ))
+                        }
+                    </ul>
+                </div>
+        </section>
+    </body>
+</html>
